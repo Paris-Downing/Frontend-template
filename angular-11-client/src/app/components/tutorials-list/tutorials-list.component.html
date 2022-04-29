@@ -42,12 +42,8 @@
         <label><strong>Title:</strong></label> {{ currentTutorial.title }}
       </div>
       <div>
-        <label><strong>Description:</strong></label>
-        {{ currentTutorial.description }}
-      </div>
-      <div>
-        <label><strong>Status:</strong></label>
-        {{ currentTutorial.published ? "Published" : "Pending" }}
+        <label><strong>Question:</strong></label>
+        {{ currentTutorial.question }}
       </div>
 
       <a class="badge badge-warning" routerLink="/tutorials/{{ currentTutorial.id }}">

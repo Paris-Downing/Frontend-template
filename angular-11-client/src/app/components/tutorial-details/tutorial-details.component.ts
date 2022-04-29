@@ -10,9 +10,9 @@ import { Tutorial } from 'src/app/models/tutorial.model';
 })
 export class TutorialDetailsComponent implements OnInit {
   currentTutorial: Tutorial = {
+    id: '',
     title: '',
-    description: '',
-    published: false
+    question: []
   };
   message = '';
 
@@ -32,27 +32,6 @@ export class TutorialDetailsComponent implements OnInit {
         data => {
           this.currentTutorial = data;
           console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  updatePublished(status: boolean): void {
-    const data = {
-      title: this.currentTutorial.title,
-      description: this.currentTutorial.description,
-      published: status
-    };
-
-    this.message = '';
-
-    this.tutorialService.update(this.currentTutorial.id, data)
-      .subscribe(
-        response => {
-          this.currentTutorial.published = status;
-          console.log(response);
-          this.message = response.message ? response.message : 'This tutorial was updated successfully!';
         },
         error => {
           console.log(error);
