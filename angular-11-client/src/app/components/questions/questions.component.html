@@ -1,0 +1,93 @@
+<div *ngIf="!endOfLesson">
+    <div *ngIf="isLoaded && currentQuestionType === 0">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <h1 style="text-align: center; padding-top: 10px;">{{ questionText }}</h1>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <h4 style="text-align: center; color: gray; padding-bottom: 40px;">{{ answerText }}</h4>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <div class="center">
+                    <button 
+                        (click)="nextQuestion()" 
+                        class="btn btn-success">
+                            Next Question
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="isLoaded && currentQuestionType === 1 || currentQuestionType === 2" class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <div *ngIf="currentQuestionType === 1">
+                    <p style="text-align: center;">Translate this to Pashto:</p>
+                </div>
+                <div *ngIf="currentQuestionType === 2">
+                    <p style="text-align: center;">Translate this to English:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center pad">
+            <div class="col col-lg-4">
+                <h2 style="text-align: center;">{{ questionText }}</h2>
+            </div> 
+        </div>  
+        <div class="row justify-content-md-center pad" style="padding-bottom: 40px;">
+            <div class="col col-lg-6">
+                <textarea 
+                    [(ngModel)]="textbox1" 
+                    [disabled] = "textboxLocked"
+                    input="text" 
+                    class="form-control z-depth-1" 
+                    id="textbox1" 
+                    rows="6" 
+                    placeholder="Write something here...">
+                </textarea>
+            </div>
+        </div>
+        <div class="row justify-content-md-center pad">
+            <div class="col col-lg-6">
+                <div class="center">
+                    <button 
+                        *ngIf = "!showAlert"
+                        [disabled]="textbox1 ==='' " 
+                        (click)="verifyAnswer()" 
+                        class="btn btn-success">
+                            Verify
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center pad" style="padding-bottom: 40px;">
+            <div class="col col-lg-6">
+                <div class="tone" [innerHTML]="sampleString"></div>
+            </div>
+        </div>
+        <div 
+            uib-alert 
+            *ngIf = "showAlert"
+            [ngClass]="alertType"
+            class = "rounded"
+            style="text-indent: 10px;">
+                {{ alertMessage }}
+                <p *ngIf="alertType === 'alert-danger' || alertType === 'alert-warning' ">{{ answerText }}</p>
+                <div class="center">
+                    <button 
+                        (click)="nextQuestion()" 
+                        class="btn btn-success">
+                            Next Question
+                    </button>
+                </div>
+        </div>
+    </div>    
+</div>
+<div *ngIf="endOfLesson">
+    <h1 @fade style="text-align: center;">CONGRATULATIONS</h1>
+</div>

@@ -12,12 +12,17 @@ export class TutorialsListComponent implements OnInit {
   currentTutorial?: Tutorial;
   currentIndex = -1;
   title = '';
+  currentQuestionID = 0;
 
   constructor(private tutorialService: TutorialService) { }
 
   ngOnInit(): void {
     this.retrieveTutorials();
   }
+
+  // getNextQuestion(): void {
+  //   this.title = this.tutorials[this.currentQuestionID]? this.tutorials[this.currentQuestionID].question[0]: '';
+  // }
 
   retrieveTutorials(): void {
     this.tutorialService.getAll()

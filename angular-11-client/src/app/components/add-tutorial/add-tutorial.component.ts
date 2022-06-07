@@ -11,7 +11,7 @@ export class AddTutorialComponent implements OnInit {
   tutorial: Tutorial = {
     id: '',
     title: '',
-    question: []
+    question: ''
   };
   submitted = false;
 
@@ -46,7 +46,7 @@ export class AddTutorialComponent implements OnInit {
     this.tutorial = {
       id: '',
       title: '',
-      question: []
+      question: ''
     };
   }
 

@@ -1,0 +1,29 @@
+.center{
+    margin:0 auto;
+    display:block;
+    text-align:center; 
+ }
+
+.pad {
+     padding-bottom: 20px;
+ }
+
+em
+{
+   text-decoration: overline;
+   font-style: normal;
+}
+
+div.tone span {
+    /* text-decoration: overline; */
+    border-top: solid 2px black;
+    border-right: solid 2px black;
+    margin-right: 1px;
+    display: inline-block;
+    line-height:1;
+}
+bar
+{
+    border-left:1px solid #000;
+    height:15px
+}

@@ -12,7 +12,8 @@ export class TutorialDetailsComponent implements OnInit {
   currentTutorial: Tutorial = {
     id: '',
     title: '',
-    question: []
+    question: '',
+    answers: ''
   };
   message = '';
 

@@ -9,7 +9,13 @@ const baseUrl = 'http://localhost:8080/api/lessons';
   providedIn: 'root'
 })
 export class TutorialService {
-
+  /* 
+    http is something that helps us connect the frontend to the backend
+    the service is specifically for that, so it needs the http tool to do that
+    to have access to the http, we have to inject it into the service, so we use @Injectable to create a global instance
+    by using it in the constructor, we can access it locally too
+    Anytime we want to use functions from this service, we can inject it into components (see tutorials-list component)
+  */
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Tutorial[]> {
