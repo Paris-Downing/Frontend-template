@@ -38,7 +38,7 @@ export class QuestionsComponent implements OnInit {
 
   /*
   TO-DO!!!
-  1) Banner shows yellow if partially correct
+  1) Add variable to act as a checkpoint for the queue
   3) If no more questions and queue is empty, there is a congratulations screen
   4) Accept multiple correct answers
   5) Questions and answers w/ Arabic script
@@ -175,33 +175,50 @@ export class QuestionsComponent implements OnInit {
     this.textboxLocked = false;
     this.showAlert = false;
     let text = new Tutorial();
+    console.log("TUROTIRALSDF:SD:", this.tutorials);
+    console.log("PRASHNNN", this.incorrectQuestions);
+    console.log("CUURRR", this.currentQuestion);
 
-    if ((this.tutorials !== undefined) && (this.tutorials[this.currentQuestion] !== undefined)) {
-      text = this.tutorials[this.currentQuestion];
-    }
-    else if((this.tutorials !== undefined) && (this.incorrectQuestions !== [])){
-      const currQ = this.incorrectQuestions.pop();
-      if(currQ !== undefined)
-        text = this.tutorials[currQ];
-    }
-    else if((this.tutorials !== undefined) && (this.incorrectQuestions === [])){
-      this.endOfLesson = true;
-    }
-
+    //decides what the next question is
     if(this.tutorials !== undefined) {
+      // 1. question exists, show it
+      if(this.tutorials[this.currentQuestion] !== undefined) 
+        text = this.tutorials[this.currentQuestion];
+
+      // 2. if new question doesn't exist, check incorrect question
+      else if(this.incorrectQuestions.length > 0) {
+        const currQ = this.incorrectQuestions.pop();  
+        if(currQ !== undefined)
+          text = this.tutorials[currQ];
+      }
+
+      // 3. if both new and incorrect question doesn't exist, show end
+      else 
+        this.endOfLesson = true;
+
+
+      //sets the questionText, answerText, and questionType for current question
       this.questionText = text.question !== undefined? text.question: '';
-      // console.log("WHAT DO ", text);
 
-      if(text.answers !== undefined) {
+      // if(text.answers !== undefined) {
         this.answerText = text.answers;
-        this.checkAnswer();
-      }
+        // this.checkAnswer(); 
+      // }
 
-      if(text.questionType !== undefined) {
+      // if(text.questionType !== undefined) {
         this.currentQuestionType = text.questionType;
-        // console.log("q type: ", this.currentQuestionType);
-      }
+      // }
     }
-      this.currentQuestion++;
-  }
+    //gets the index of the current question
+    this.currentQuestion++;
+}
+    
+
+
+
+
+
+
+
+
 }
