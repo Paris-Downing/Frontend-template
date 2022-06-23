@@ -39,11 +39,10 @@ export class QuestionsComponent implements OnInit {
   /*
   TO-DO!!!
   1) Add variable to act as a checkpoint for the queue
-  3) If no more questions and queue is empty, there is a congratulations screen
-  4) Accept multiple correct answers
-  5) Questions and answers w/ Arabic script
-  6) fix side overline
-  7) Should I make each word look-able up-able?
+  2) Accept multiple correct answers
+  3) Questions and answers w/ Arabic script
+  4) fix side overline
+  5) Should I make each word look-able up-able?
   */
 
   constructor(private tutorialService: TutorialService) { }
@@ -54,7 +53,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   retrieveTutorials(): void {
-    this.tutorialService.getAll()
+    this.tutorialService.get(1)
       .subscribe(
         data => {
           this.tutorials = data;
@@ -145,8 +144,6 @@ export class QuestionsComponent implements OnInit {
       return .5;  //there was only one missing or extra letter
     } else {
       // console.log("ERROR TYPE 6");  //the words didn't match at all
-      // console.log(sentence1);
-      // console.log(sentence2); 
       return 1;
     }
   }
