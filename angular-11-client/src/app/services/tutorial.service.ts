@@ -9,6 +9,8 @@ const baseUrl = 'http://localhost:8080/api/lessons';
   providedIn: 'root'
 })
 export class TutorialService {
+  chapter?: any = 1; 
+  lesson?: any = 1;
   /* 
     http is something that helps us connect the frontend to the backend
     the service is specifically for that, so it needs the http tool to do that
@@ -22,8 +24,16 @@ export class TutorialService {
     return this.http.get<Tutorial[]>(baseUrl);
   }
 
-  get(id: any): Observable<Tutorial> {
-    return this.http.get(`${baseUrl}/${id}`);
+  get(): Observable<Tutorial[]> {
+    return this.http.get<Tutorial[]>(`${baseUrl}/${this.chapter}/${this.lesson}`);
+  }
+
+  setChapter(chapter: any) : void {
+    this.chapter = chapter; 
+  }
+
+  setLesson(lesson: any) : void {
+    this.lesson = lesson; 
   }
 
   create(data: any): Observable<any> {

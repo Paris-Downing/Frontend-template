@@ -38,11 +38,13 @@ export class QuestionsComponent implements OnInit {
 
   /*
   TO-DO!!!
+  0) See issues in ChapterComponent
   1) Add variable to act as a checkpoint for the queue
   2) Accept multiple correct answers
   3) Questions and answers w/ Arabic script
   4) fix side overline
   5) Should I make each word look-able up-able?
+  6) Clicking on backbutton or home button = do you want to leave this lesson? Your progress will not be saved
   */
 
   constructor(private tutorialService: TutorialService) { }
@@ -53,7 +55,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   retrieveTutorials(): void {
-    this.tutorialService.get(1)
+    this.tutorialService.get()
       .subscribe(
         data => {
           this.tutorials = data;
