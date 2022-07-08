@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 // import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { ChapterComponent } from './components/chapter/chapter.component';
+import { TreeComponent } from './components/tree/tree.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   // { path: 'tutorials/:id', component: TutorialDetailsComponent },
   // { path: 'add', component: AddTutorialComponent },
   { path: 'chapters', component: ChapterComponent },
-  { path: 'questions', component: QuestionsComponent }
+  { path: 'questions', component: QuestionsComponent },
+  { path: 'tree', component: TreeComponent }
 ];
 
 @NgModule({

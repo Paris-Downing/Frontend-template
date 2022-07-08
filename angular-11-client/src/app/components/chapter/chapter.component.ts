@@ -12,6 +12,7 @@ export class ChapterComponent implements OnInit {
   buttons = [1, 4];
 
   /*
+  0) Align bubbles center
   1) Dynamic population for buttons
   2) Depending on user's progress, button is disabled until previous courses are finished
   3) bubbles for the following
@@ -20,14 +21,20 @@ export class ChapterComponent implements OnInit {
     - Flash cards (premium)
     - Dialogue Conversation
     - Writing practice for Pashto
+    - placement test
   */
 
   constructor(private tutorialService: TutorialService) { }
 
   ngOnInit(): void {
+    this.setChapter();
   }
 
   setLesson(myLesson :any ): void {
     this.tutorialService.setLesson(myLesson);
+  }
+
+  setChapter(): void {
+    this.chapter = this.tutorialService.getChapter();
   }
 }

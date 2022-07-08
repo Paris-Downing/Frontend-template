@@ -28,6 +28,10 @@ export class TutorialService {
     return this.http.get<Tutorial[]>(`${baseUrl}/${this.chapter}/${this.lesson}`);
   }
 
+  getChapter() : number {
+    return this.chapter;
+  }
+
   setChapter(chapter: any) : void {
     this.chapter = chapter; 
   }

@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 // import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { ChapterComponent } from './components/chapter/chapter.component';
+import { TreeComponent } from './components/tree/tree.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ChapterComponent } from './components/chapter/chapter.component';
     // TutorialDetailsComponent,
     // TutorialsListComponent,
     QuestionsComponent,
-    ChapterComponent
+    ChapterComponent,
+    TreeComponent
   ],
   imports: [
     BrowserModule,

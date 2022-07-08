@@ -41,10 +41,11 @@ export class QuestionsComponent implements OnInit {
   0) See issues in ChapterComponent
   1) Add variable to act as a checkpoint for the queue
   2) Accept multiple correct answers
-  3) Questions and answers w/ Arabic script
+  3) Questions and answers w/ Arabic script as option
   4) fix side overline
   5) Should I make each word look-able up-able?
   6) Clicking on backbutton or home button = do you want to leave this lesson? Your progress will not be saved
+  7) Show IPA/transcription on command
   */
 
   constructor(private tutorialService: TutorialService) { }
